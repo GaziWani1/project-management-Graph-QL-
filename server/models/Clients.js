@@ -6,7 +6,7 @@ const ClientSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    unque: true,
+    unique: true,
   },
   password: {
     type: String,
