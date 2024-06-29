@@ -8,7 +8,7 @@ const ClientSchema = mongoose.Schema({
     type: String,
     unique: true,
   },
-  password: {
+  phone: {
     type: String,
     require: true,
   },
