@@ -9,13 +9,13 @@ export const Clients = () => {
   if (error) return <h1 className="text-white">some thing went wrong</h1>;
 
   return (
-    <div className="grid grid-cols-2  gap-4">
-      <div className="relative overflow-x-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
+      <div className="relative overflow-x-auto rounded-md">
         {loading ? (
           <Spinner />
         ) : (
-          <table className="w-full text-sm text-left rtl:text-right rounded-md">
-            <thead className="text-xs  text-white uppercase  bg-slate-500">
+          <table className="w-full text-sm text-left rtl:text-right ">
+            <thead className="text-xs  text-white uppercase  bg-zinc-900">
               <tr className="text-[16px]">
                 <th scope="col" className="px-6 py-3">
                   Name
@@ -34,7 +34,7 @@ export const Clients = () => {
             <tbody>
               {data.clients.map((client) => (
                 <TableRow
-                key={client.id}
+                  key={client.id}
                   id={client.id}
                   name={client.name}
                   email={client.email}

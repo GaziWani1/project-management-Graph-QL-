@@ -3,16 +3,33 @@ import Header from "./components/Header";
 import { ApolloProvider , InMemoryCache , ApolloClient } from "@apollo/client";
 import { Clients } from "./components/Clients";
 
+const cache = new InMemoryCache({
+  typePolicies:{
+    Query:{
+      fields:{
+        clients:{
+          merge(existing,incoming){
+            return incoming
+          }
+        },
+        projects:{
+
+        }
+      }
+    }
+  }
+})
+
 const client = new ApolloClient({
   uri:'http://localhost:5000/graphql',
-  cache: new InMemoryCache(),
+  cache
 })
 
 const App = () => {
   return  <>
   <ApolloProvider client={client}>
    <Header />
-   <div className="w-full px-10 mt-5">
+   <div className="w-full px-2 md:px-10 mt-5">
     <Clients />
   </div>
   </ApolloProvider>
