@@ -2,6 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 import { GET_CLIENT } from '../quries/clientQuries';
 import TableRow from './TableRow';
 import { Spinner } from './Spinner';
+import AddClientModel from './AddClientModel';
 
 export const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENT);
@@ -9,7 +10,7 @@ export const Clients = () => {
   if (error) return <h1 className="text-white">some thing went wrong</h1>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
+    <>
       <div className="relative overflow-x-auto rounded-md">
         {loading ? (
           <Spinner />
@@ -45,7 +46,7 @@ export const Clients = () => {
           </table>
         )}
       </div>
-      <div></div>
-    </div>
+      
+    </>
   );
 };
